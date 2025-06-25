@@ -1,27 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>You have to see this</title>
-    <style>
-      html, body {
-        margin: 0;
-        height: 100%;
-        overflow: hidden;
-        background-color: black;
-      }
-      iframe {
-        width: 100%;
-        height: 100%;
-        border: none;
-      }
-    </style>
-  </head>
-  <body>
-    <iframe 
-      src="https://www.youtube.com/embed/CoqQuUbw_QI?autoplay=1&controls=0&mute=1&modestbranding=1&rel=0&playsinline=1"
-      allow="autoplay; encrypted-media"
-      allowfullscreen
-    ></iframe>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <title>Click to start</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      user-select: none;
+      cursor: pointer;
+    }
+    #startButton {
+      padding: 20px 40px;
+      font-size: 24px;
+      background: #1db954;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #1db954aa;
+      transition: background 0.3s ease;
+    }
+    #startButton:hover {
+      background: #1ed760;
+    }
+    iframe {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <button id="startButton">Click to start the surprise!</button>
+  <iframe
+    id="videoFrame"
+    src=""
+    allow="autoplay; fullscreen"
+    allowfullscreen
+  ></iframe>
+
+  <script>
+    const button = document.getElementById('startButton');
+    const iframe = document.getElementById('videoFrame');
+
+    button.addEventListener('click', () => {
+      // Set iframe src with autoplay & sound
+      iframe.src = "https://www.youtube.com/embed/CoqQuUbw_QI?autoplay=1&controls=0&rel=0&modestbranding=1";
+
+      // Show iframe, hide button
+      iframe.style.display = 'block';
+      button.style.display = 'none';
+    });
+  </script>
+</body>
 </html>
